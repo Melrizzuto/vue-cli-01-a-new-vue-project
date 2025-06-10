@@ -1,6 +1,8 @@
 <template>
-  <h3>{{ member.name }}</h3>
-  <button @click="toggleVisibility">Show Infos</button>
+  <h3>{{ member.role }}</h3>
+  <button @click="toggleVisibility">
+    {‌{ visible ? 'Hide' : 'Show' }} Infos
+  </button>
   <ul v-if="visible">
     <li>Full Name: {{ member.name }} {{ member.surname }}</li>
     <li>Age: {{ member.age }}</li>
