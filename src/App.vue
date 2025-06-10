@@ -1,17 +1,14 @@
 <template>
   <h2>My family</h2>
   <ul>
-    <li v-for="member in familyMembers" :key="member.id">
-      {{ member.name }} {{ member.surname }} ({{ member.age }} years old)
+    <li>
+      <family-info
+        v-for="member in familyMembers"
+        :key="member.id"
+        :member="member"
+      ></family-info>
     </li>
   </ul>
-  <p v-if="familyMembers.length === 0">No family members found.</p>
-  <p v-else>We have {{ familyMembers.length }} family members.</p>
-  <p v-if="familyMembers.length > 3">We have a big family!</p>
-  <p v-else>We have a small family.</p>
-  <p v-for="member in familyMembers" :key="member.id">
-    {{ member.name }} is {{ member.age }} years old.
-  </p>
 </template>
 
 <script>
