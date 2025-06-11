@@ -1,7 +1,9 @@
 <template>
-  <header><h2>My Family</h2></header>
-  <ul v-for="member in familyMembers" :key="member.id">
-    <li>
+  <header>
+    <h2>My Family</h2>
+  </header>
+  <ul>
+    <li v-for="member in familyMembers" :key="member.id">
       <family-info
         :name="member.name"
         :surname="member.surname"
@@ -11,12 +13,12 @@
       ></family-info>
     </li>
   </ul>
+  <new-member-add @add-member="addMember" />
 </template>
 
 <script>
 export default {
   data() {
-    // This function returns an object with family members' details
     return {
       familyMembers: [
         {
@@ -54,8 +56,22 @@ export default {
       ],
     };
   },
+  methods: {
+    addMember(name, surname, age, role, favorite) {
+      const newMember = {
+        id: Math.random().toString(36).substr(2, 9),
+        name,
+        surname,
+        age,
+        role,
+        favorite,
+      };
+      this.familyMembers.push(newMember);
+    },
+  },
 };
 </script>
+
 <style>
 * {
   box-sizing: border-box;
@@ -84,13 +100,13 @@ header {
   max-width: 40rem;
 }
 
-#app ul {
+ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-#app li {
+li {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin: 1.5rem auto;
   border-radius: 12px;
@@ -102,12 +118,12 @@ header {
   max-width: 40rem;
 }
 
-#app li:hover {
+li:hover {
   transform: translateY(-4px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 
-#app h2 {
+h2 {
   padding: 0.5rem;
   font-size: 2rem;
   border-bottom: 4px solid #ccc;
@@ -115,7 +131,7 @@ header {
   text-align: center;
 }
 
-#app button {
+button {
   font: inherit;
   cursor: pointer;
   border: 1px solid #ff0077;
@@ -126,8 +142,8 @@ header {
   transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-#app button:hover,
-#app button:active {
+button:hover,
+button:active {
   background-color: #ec3169;
   border-color: #ec3169;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
