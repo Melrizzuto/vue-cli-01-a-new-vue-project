@@ -1,11 +1,12 @@
 <template>
   <header><h2>My Family</h2></header>
-  <ul>
+  <ul v-for="member in familyMembers" :key="member.id">
     <li>
       <family-info
-        v-for="member in familyMembers"
-        :key="member.id"
-        :member="member"
+        :name="member.name"
+        :surname="member.surname"
+        :age="member.age"
+        :role="member.role"
       ></family-info>
     </li>
   </ul>

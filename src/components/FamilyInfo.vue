@@ -1,23 +1,17 @@
 <template>
-  <h3>{{ member.role }}</h3>
+  <h3>{{ role }}</h3>
   <button @click="toggleVisibility">
     {{ visible ? "Hide" : "Show" }} Infos
   </button>
   <ul v-if="visible">
-    <li>Full Name: {{ member.name }} {{ member.surname }}</li>
-    <li>Age: {{ member.age }}</li>
+    <li>Full Name: {{ name }} {{ surname }}</li>
+    <li>Age: {{ age }}</li>
   </ul>
 </template>
 
 <script>
 export default {
-  name: "MemberCard",
-  props: {
-    member: {
-      type: Object,
-      required: true,
-    },
-  },
+  props: ["name", "surname", "age", "role"],
   data() {
     return {
       visible: false,
