@@ -7,6 +7,7 @@
         :surname="member.surname"
         :age="member.age"
         :role="member.role"
+        :favorite="member.favorite"
       ></family-info>
     </li>
   </ul>
@@ -24,6 +25,7 @@ export default {
           surname: "Rizzuto",
           age: 59,
           role: "My Dad",
+          favorite: true,
         },
         {
           id: "daniela",
@@ -31,6 +33,7 @@ export default {
           surname: "Prudente",
           age: 55,
           role: "My Mom",
+          favorite: true,
         },
         {
           id: "giuseppe",
@@ -38,6 +41,7 @@ export default {
           surname: "Rizzuto",
           age: 30,
           role: "My Brother",
+          favorite: true,
         },
         {
           id: "melania",
@@ -45,6 +49,7 @@ export default {
           surname: "Rizzuto",
           age: 32,
           role: "It's Me",
+          favorite: false,
         },
       ],
     };
